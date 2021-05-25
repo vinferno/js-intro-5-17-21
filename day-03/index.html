@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+
+
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+    <div>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+    </div>
+    <div>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+    </div>
+    <div>
+        <button>0</button>
+        <button>Enter</button>
+        <button>Enter</button>
+    </div>
+
+
+
+
+    <script>
+
+        const numbers = [];
+    
+
+
+        function getAllButtons(){
+            return document.querySelectorAll('button');
+        }
+        function writeInsideElement(item, index) {
+            item.innerText =  index;
+        }
+
+        function addItemToArray(array, index) {
+            array.push(index);
+        }
+
+        getAllButtons().forEach(function whatToDoWithButtons(item, index) {
+
+
+            writeInsideElement(item, index);
+
+            item.addEventListener("click", function() {
+            
+               addItemToArray(numbers, index);
+                console.log(numbers);
+
+                const answer = numbers.reduce(function(a, b) {
+                    return a + b;
+                }, 0)
+
+                console.log(answer, '*')
+            } )
+
+        });
+
+        getAllButtons()[getAllButtons().length - 1].innerText = 'Enter';
+
+      
+    </script>
+
+</body>
+</html>
