@@ -21,6 +21,8 @@ function whenMoleIsClicked() {
     console.log(score);
     intervalTime = intervalTime - 100;
     clearInterval(interval);
+    moveMole(getRandomNumber(area), getRandomNumber(area));
+
     interval = setInterval(doLater, intervalTime);
 }
 
