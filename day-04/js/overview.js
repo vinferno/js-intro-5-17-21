@@ -65,9 +65,9 @@ const age = 18;
 
 switch(age) {
     case 18: 'you are just old enough'
-    return;
+    break;
     case 21: 'you are old enough for vip';
-    return;
+    break;
     default:
         'you are not allowed';
 
