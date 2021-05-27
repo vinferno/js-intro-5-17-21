@@ -59,3 +59,16 @@ function isNameUsed(text) {
     return lis.some( function(item) { return item.innerText === text}) 
 }
 
+1 == '1' ? console.log(true) : console.log(false);
+
+const age = 18;
+
+switch(age) {
+    case 18: 'you are just old enough'
+    return;
+    case 21: 'you are old enough for vip';
+    return;
+    default:
+        'you are not allowed';
+
+}
