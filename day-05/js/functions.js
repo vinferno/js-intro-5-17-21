@@ -3,7 +3,6 @@
 // Names (helpful);
 // Reusability
 // Delay Usage ( callbacks, promises, observables )
-
 // Scope (Encapsulation)
 
 
