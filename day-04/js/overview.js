@@ -11,6 +11,7 @@ input.addEventListener('keydown', function(event) {
     }
 });
 
+input.addEventListener('click', )
 
 const submitButton = document.createElement('button');
 document.body.appendChild(submitButton);
