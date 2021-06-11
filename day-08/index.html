@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      const items = [1, 0, '', 'test', true, false, {}, [1,3, 4]];
+
+
+        // items.forEach(function(item) {
+        //     console.log(item)
+        // })
+
+
+        // for (let i = 2; i < items.length; i++) {
+        //     console.log(items[i])
+        // }
+
+        const filteredList = items.filter( x => !x);
+        console.log(filteredList);
+
+
+        const object = {
+            age: 40,
+            isActive: true,
+            firstName : 'Joe',
+            lastName : 'Jones',
+            'my favorite colors': ['Green'],
+            favoriteFoods : ['Pizza', 'Burgers', function() {
+                console.log(this);
+                return this;
+            }],
+            style: {
+                hairColor: 'brown',
+                eyes: 'green',
+                test() {
+                    console.log(this);
+                    return 2;
+                }
+            },
+            greet: greet
+        };
+        const object2 = {
+            age: 40,
+            isActive: true,
+            firstName : 'Joe',
+            lastName : 'Jones',
+            'my favorite colors': ['Green'],
+            favoriteFoods : ['Pizza', 'Burgers', function() {
+                console.log(this);
+                return this;
+            }],
+            style: {
+                hairColor: 'brown',
+                eyes: 'green',
+                test() {
+                    console.log(this);
+                    return 2;
+                }
+            },
+            greet: greet
+        };
+        function greet() {
+                console.log('hello my name is', this.firstName);
+            }
+
+    //    console.log( object['my favorite colors'], object.isActive )
+        // object.greet();
+        //     greet();
+            console.log(object.favoriteFoods[2]())
+        console.log(object.style['test']());
+
+
+        function makeSandwich() {
+            const step1 = 'get bread';
+            const step2 = 'put meat';
+            const step3 = 'squeeze mustard';
+            const step4 = 'place top bread';
+            return {};
+        }
+
+        makeSandwich();
+        makeSandwich();
+        makeSandwich();
+
+        class User {
+            element = document.createElement('li');
+            constructor(age, isActive, firstName, lastName) {
+                this.age = age;
+                this.isActive = isActive;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                document.body.appendChild(this.element);
+                this.element.innerHTML = this.fullName;
+            }
+            greet() {
+                console.log('hello my name is', this.firstName, this.lastName);
+            }
+
+            get fullName() {
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+
+
+        const user1 = new User(55, true, 'Max', 'Jones');
+        const user2 = new User(33, false,  'Moe', 'James' );
+
+        const users = [];
+
+        users.push(user1, user2);
+        console.log(user1, object);
+        user1.greet();
+        user2.greet();
+ 
+
+        function makeUser(firstName, lastName) {
+            return {firstName, lastName}
+        }
+
+        users.push(makeUser('Joe', 'Jim'));
+
+        console.log(users);
+
+        const dog = {
+            name: 'spot',
+            legs: 4,
+            furColor: 'brown',
+            speak() {
+                console.log('woof');
+            }
+        }
+
+        const li = document.createElement('li');
+
+        li.innerHTML = dog.name;
+        li.innerHTML += JSON.stringify(dog);
+        document.body.appendChild(li);
+    </script>
+</body>
+</html>
