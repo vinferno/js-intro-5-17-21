@@ -8,12 +8,14 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    <h2>Get Users</h2>
-    <button id="getUsers">Get Users</button>
-    <hr>
+    <h2>Get Users</h2><button id="getUsers">Get Users</button><hr>
     <h2>Send User</h2>
-    <input id="sendUserNameInput" type="text">
-    <button id="sendUserButton"></button>
+    <form onSubmit="onSubmit(event)" name="userInfo">
+        <input id="sendUserNameInput" type="text" name="username">
+        <input type="number" id="userAgeInput" name="age">
+        <button id="sendUserButton"></button>
+    </form>
+   
 
     
 </body>

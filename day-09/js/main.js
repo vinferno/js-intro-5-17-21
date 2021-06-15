@@ -1,6 +1,6 @@
 
 function api(endpoint = '', data) {
-    return fetch('https://60e2c52d7d58.ngrok.io/' + endpoint, {
+    return fetch('localhost:5000' + endpoint, {
         method: data ? "POST" : "GET",
         body: data,
         headers: {'content-type': 'application/json'},
@@ -11,8 +11,11 @@ function api(endpoint = '', data) {
 }
 
 const getUsersButton = document.querySelector('#getUsers');
-const sendUserNameInput = document.querySelector('#sendUserNameInput');
 const sendUserButton = document.querySelector('#sendUserButton');
+
+
+const sendUserNameInput = document.querySelector('#sendUserNameInput');
+const userAgeInput = document.querySelector('#userAgeInput');
 
 
 sendUserButton.innerText = 'Send User';
@@ -26,17 +29,19 @@ getUsersButton.addEventListener( 'click', function()  {
 
 sendUserButton.addEventListener( 'click', () => {
     const username = sendUserNameInput.value;
-    console.log(username);
-
-    if (!username) {
+    const age = Number(userAgeInput.value);
+    console.log(document.forms['userInfo'].username.value)
+    if (!username || !age) {
         return;
     }
-
-
-
-    console.log('this wont happen unless there is a username', username);
-   
-
-    api('users', JSON.stringify({user: username}) ).then( data => console.log('post', data));
+    api( 'users', 
+        JSON.stringify(
+            { user:  { username, age } }
+        )
+    ).then( data => console.log('post', data));
 });
 
+function onSubmit(event) {
+    console.log(event);
+    event.preventDefault();
+}
