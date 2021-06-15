@@ -89,6 +89,11 @@
 
         class User {
             element = document.createElement('li');
+            age = 40;
+            isActive = true;
+            firstName = 'Joe';
+            lastName = 'Jones';
+            
             constructor(age, isActive, firstName, lastName) {
                 this.age = age;
                 this.isActive = isActive;
@@ -140,6 +145,18 @@
         li.innerHTML = dog.name;
         li.innerHTML += JSON.stringify(dog);
         document.body.appendChild(li);
+
+        class Character {
+            health = 100;
+            attack = 1;
+        }
+
+        class Enemy extends Character{
+          
+        }
+        class Player extends Character{
+           
+        }
     </script>
 </body>
 </html>
