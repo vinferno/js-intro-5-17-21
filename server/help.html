@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        let user = sessionStorage.getItem('user');
+        let settings = localStorage.getItem('settings');
+
+        if (!user) {
+            user = prompt('user');
+            sessionStorage.setItem('user', user);
+        }
+
+
+        if (!settings) {
+            settings = prompt('settings');
+            localStorage.setItem('settings', settings);
+        }
+
+        console.log(user, settings);
+    </script>
+ 
+</body>
+</html>
