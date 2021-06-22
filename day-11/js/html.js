@@ -1,14 +1,33 @@
 class HtmlHelper {
     name = 'HtmlHelper';
     activeElement = null;
+    everyElementArray = [];
 
-    createElement(type = 'span') {
-        return document.createElement(type);
+    createElement(type = 'span', name) {
+        const element = document.createElement(type);
+        this.everyElementArray.push(element);
+
+        if (name) {
+            this.giveName(element, name);
+        }
+        this.setActiveElement(element);
+        return element;
     }
 
-    appendChild(child, parent = document.body) {
-        console.log(parent, child);
-        return parent.appendChild(child)
+    giveName(element, name) {
+        element.id = name;
+    }
+
+    getByName(name) {
+        return this.everyElementArray.find( item => item.id === name);
+    }
+
+    setActiveByName(name) {
+        this.activeElement = this.getByName(name);
+    }
+
+    appendChild(name, parent = document.body) {
+        return parent.appendChild(this.getByName(name))
     }
 
     addStyle(style) {
@@ -22,6 +41,7 @@ class HtmlHelper {
     }
 
     addText( text){
+        console.log(this.activeElement);
         this.activeElement.innerText = text;
     }
 
@@ -31,8 +51,8 @@ class HtmlHelper {
         this.activeElement.style.top = y + 'px';
     }
 
-    setActiveElement(element) {
-        this.activeElement = element;
+    setActiveElement(name) {
+        this.activeElement = this.getByName(name);
     }
 
     addEventListener(eventType, callback) {

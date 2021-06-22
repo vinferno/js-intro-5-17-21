@@ -1,31 +1,41 @@
 import { htmlHelper } from "./html.js";
-
-console.log(htmlHelper);
-
-
-const li = htmlHelper.createElement('li');
-const span = htmlHelper.createElement('li');
-htmlHelper.appendChild(li);
-htmlHelper.appendChild(span, li);
+import { dataHelper} from './data.js';
 
 
 
-htmlHelper.setActiveElement(li);
+htmlHelper.createElement('input', 'login-input');
+htmlHelper.createElement('button', 'login-button');
+htmlHelper.createElement('span', 'who-is-logged-in');
 
-htmlHelper.addStyle({color: 'red'});
 
-htmlHelper.toggleClass('active');
+htmlHelper.appendChild('login-input');
+htmlHelper.appendChild('login-button');
+htmlHelper.appendChild('who-is-logged-in');
+htmlHelper.setActiveElement('login-button');
+htmlHelper.addText('Login');
+htmlHelper.addStyle({backgroundColor: 'green'});
 
-htmlHelper.toggleClass('active');
 
-htmlHelper.toggleClass( 'good');
+htmlHelper.setActiveElement('who-is-logged-in');
+htmlHelper.addText('username:');
 
-htmlHelper.addText('this is an li');
-htmlHelper.addText('new text');
+htmlHelper.addStyle({marginLeft: '100px'});
 
-htmlHelper.changePosition( 100, 200);
-htmlHelper.changePosition( 100, 500);
-htmlHelper.appendChild(span, li);
-htmlHelper.addEventListener('click', () => alert('clicked') )
+htmlHelper.setActiveElement('login-button');
+
+htmlHelper.addEventListener('click', () => {
+    const username = htmlHelper.getByName('login-input').value;
+
+    dataHelper.loggedInUser = dataHelper.createUser(username);
+    htmlHelper.setActiveElement('who-is-logged-in');
+    htmlHelper.addText('username: ' + username);
+
+    console.log(dataHelper)
+})
+
+
+
+
+
 
 
